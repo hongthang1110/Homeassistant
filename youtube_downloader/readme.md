@@ -1,5 +1,5 @@
-﻿Service cho phép download file mp3 từ link youtube và lưu vào thư mục local trên homeassistant
-Khai báo trong configuration.yaml như sau:
+﻿# Service cho phép play mp3, download file mp3 từ link youtube và lưu vào thư mục local trên homeassistant
+**Khai báo trong configuration.yaml như sau:**
 
 ```python
 downloader:
@@ -7,17 +7,25 @@ downloader:
 
 youtube_downloader:
 ```
-
-Khai báo gọi dịch vụ như sau:
+**Dịch vụ play mp3:**
 
 ```python
-service: youtube_downloader.download
+service: youtube_downloader.play_mp3
   data:
-    message: 'link youtube muốn download'
+    url: 'link youtube muốn play'
+    entity_id: 'entity loa muốn phát'
+```
+
+**Dịch vụ download mp3:**
+
+```python
+service: youtube_downloader.download_mp3
+  data:
+    url: 'link youtube muốn download'
     save_dir: 'music'   #thư mục con muốn lưu trữ trên hass (là subdir của thư mục download_dir khai báo trong file configuration.yaml
 ```
 
-Fix lỗi file youtube.py
+**Fix lỗi file youtube.py**
 ```python
 'uploader_id': self._search_regex(r'/(?:channel|user)/([^/?&#]+)', owner_profile_url, 'uploader id') if owner_profile_url else None,
   File "/usr/local/lib/python3.10/site-packages/youtube_dl/extractor/common.py", line 1012, in _search_regex
