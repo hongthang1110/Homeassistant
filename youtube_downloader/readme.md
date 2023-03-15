@@ -22,7 +22,7 @@ service: youtube_downloader.play_mp3
 service: youtube_downloader.download_mp3
   data:
     url: 'link youtube muốn download'
-    save_dir: 'music'   #thư mục con muốn lưu trữ trên hass (là subdir của thư mục download_dir khai báo trong file configuration.yaml
+    sub_dir: 'music'   #thư mục con muốn lưu trữ trên hass (là subdir của thư mục download_dir khai báo trong file configuration.yaml
 ```
 
 **Fix lỗi file youtube.py**
