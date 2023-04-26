@@ -51,3 +51,16 @@ và sửa thành:
 ```
 
 Save file rồi reboot lại homeassistant
+
+
+Cách fix tự động:
+Tải file fix_youtube_py.sh về đẩy vào thư mục trên hass. VD: /usr/share/hassio/homeassistant/scripts/fix_youtube_py.sh
+
+Chạy lệnh sau để run script vào 1h sáng hàng ngày:
+chmod +x /usr/share/hassio/homeassistant/scripts/fix_youtube_py.sh
+crontab -e
+
+Thêm dòng sau vào cuối file và save lại
+0 1 * * * /usr/share/hassio/homeassistant/scripts/fix_youtube_py.sh
+
+Chúc bạn thành công!
